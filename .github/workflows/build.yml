@@ -3,11 +3,12 @@ name: Build Mace Client
 on:
   workflow_dispatch:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
 
@@ -19,20 +20,20 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: "21"
           cache: gradle
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '9.2.0'
+          gradle-version: "9.2.0"
 
       - name: Build mod
-        run: gradle --no-daemon build
+        run: gradle --no-daemon --project-dir MaceClient-1.21.11-GitHub-Build build
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: MaceClient-1.21.11
-          path: build/libs/*.jar
+          path: MaceClient-1.21.11-GitHub-Build/build/libs/*.jar
           if-no-files-found: error
