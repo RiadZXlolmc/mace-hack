@@ -18,7 +18,7 @@ public class ClickGuiScreen extends Screen {
         }
     }
     public void render(DrawContext d,int mx,int my,float delta){
-        renderBackground(d);
+        renderBackground(d,mx,my,delta);
         d.drawCenteredTextWithShadow(textRenderer,Text.literal("MACE CLIENT"),width/2,18,0xFFFFFF);
         d.drawCenteredTextWithShadow(textRenderer,Text.literal("Fabric 1.21.11  •  Right Shift"),width/2,32,0xAAAAAA);
         super.render(d,mx,my,delta);
