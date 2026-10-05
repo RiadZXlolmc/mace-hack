@@ -22,12 +22,11 @@ public class ClickGuiScreen extends Screen {
     @Override
     public void render(DrawContext d,int mx,int my,float delta){
         System.out.println("[MACE] render() method ENTERED");
-        renderBackground(d,mx,my,delta);
+        super.render(d,mx,my,delta);
         d.fill(50, 50, 250, 150, 0xFFFF0000);
         d.drawCenteredTextWithShadow(textRenderer, Text.literal("MACE TEST"), width / 2, 60, 0xFFFFFFFF);
         d.drawCenteredTextWithShadow(textRenderer,Text.literal("MACE CLIENT"),width/2,18,0xFFFFFF);
         d.drawCenteredTextWithShadow(textRenderer,Text.literal("Fabric 1.21.11  •  Right Shift"),width/2,32,0xAAAAAA);
-        super.render(d,mx,my,delta);
     }
     @Override
     public boolean shouldPause(){return false;}
